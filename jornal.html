@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal Conexão Escola</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+                    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+                    <link rel="web sote icon" href="Logo Conexão Escola.png">
+
+                    <style>
+*/{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --corTema: rgb(10, 82, 155);
+}
+
+html::-webkit-scrollbar{
+    width: 13px;
+}
+
+html::-webkit-scrollbar-track{
+    background-color: rgb(187, 195, 202);
+    padding: -4px;
+}
+
+html::-webkit-scrollbar-thumb{
+    border: 2px solid rgb(187, 195, 202);
+    border-radius: 20px;
+    background: rgb(110, 171, 241);
+}
+
+.principal-nav nav{
+    position: fixed;
+    width: 95.56%;
+    height: 20px;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/041/954/706/non_2x/ai-generated-blue-grunge-horizontal-texture-vintage-empty-art-wallpaper-navy-cyan-template-and-decoration-antique-decorative-indigo-surface-ai-generated-free-photo.jpg);
+    background-size: cover;
+    z-index: 1;
+}
+
+.principal-nav nav ul{
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    gap: 86%;
+    top: -28px;
+    left: -50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.principal-nav nav ul button li{
+    display: flex;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.principal-nav nav ul button{
+    border: none;
+    border-radius: 20px;
+    color: black;
+    transition: 0.3s;
+}
+
+.principal-nav nav ul button li:hover{
+    background-color: rgb(170, 169, 168);
+}
+
+.principal-nav nav ul button:hover{
+    background-color: rgb(170, 169, 168);
+}
+
+.principal-nav nav ul button i{
+    position: relative;
+    top: 3px;
+    left: -5px;
+}
+
+.principal-nav h2#title{
+    font-family: Teko;
+    position: absolute;
+    left: 36%;
+    top: -35px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+.nav{
+    width: 0px;
+    height: 100%;
+    position: fixed;
+    background-color: white;
+    top: -1px;
+    left: 0;
+    overflow: hidden;
+    transition: 0.6s;
+    border: 1px solid black;
+    z-index: 2;
+}
+
+
+.nav ul{
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    top: 17px;
+    left: -20px;
+}
+
+.nav ul a{
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    transition: 0.3s;
+}
+
+.nav ul #voltar-menu{
+    position: relative;
+    left: 0px;
+    width: 40px;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+.nav ul #voltar-menu:hover{
+    cursor: pointer;
+    scale: 150%;
+}
+
+.nav ul a::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    transition: 0.6s;
+}
+
+.nav ul a:hover::after{
+    width: 90%;
+}
+
+.conteudo h1{
+    position: relative;
+    top: 100px;
+    width: 80%;
+    margin-left: 30px;
+    font-size: 42px;
+}
+
+.conteudo p{
+    position: relative;
+    width: 70%;
+    border: 1px solid black;
+    margin-left: 30px;
+    top: 80px;
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    row-gap: 20px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.conteudo i{
+    font-size: 17px;
+}
+
+video{
+    position: relative;
+    width: 350px;
+    left: 70px;
+    margin-right: 100px;
+    margin-top: 40px;
+}
+
+dialog#msg-nao-disponivel{
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px black;
+    padding: 40px;
+    font-size: 26px;
+    text-align: center;
+    background-color: white;
+    z-index: 3;
+}
+
+dialog#msg-nao-disponivel button{
+    width: 160px;
+    height: 55px;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+dialog#msg-nao-disponivel button:hover{
+    width: 70%;
+    height: 70px;
+    font-size: 20px;
+    background-color: rgb(176, 239, 255);
+}
+
+#form-login{
+    padding: 20px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 530px;
+    border-radius: 20px;
+    background-color: rgb(43, 42, 56);
+    color: rgb(255, 255, 255);      
+    border: 1px solid black;
+    box-shadow: 15px 0px 60px var(--corTemaFosco);
+    z-index: 4;
+    }
+
+    #login-icon{
+        position: relative;
+        left: 10px;
+    }
+    
+    #form-login a.msg-input{
+        visibility: hidden;
+    }
+    
+    #form-login input{
+        top: 300px;
+    }
+    
+
+    input{
+        margin-top: 30px;
+        width: 98%;
+        height: 30px;
+        border: none;
+        outline: none;
+        border-radius: 7px;
+        padding: 5px 10px;
+        font-size: 16px;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+    }
+    
+    label{
+        position: absolute;
+        margin-top: -66px;
+        margin-left: 10px;
+        transition: 0.4s;
+        pointer-events: none;
+    }
+
+    button#entrar{
+        position: relative;
+        width: 180px;
+        height: 35px;
+        top: 16px;
+        left: 28%;
+        font-size: 17px;
+        transition: 0.5s;
+        background-color: transparent;
+        border: 1px solid rgb(51, 142, 226);
+        color: rgb(51, 142, 226);
+        border-radius: 30px;
+    }
+    
+    button#entrar:hover{
+        cursor: pointer;
+        background-color: rgb(51, 142, 226);
+        box-shadow: 0px 0px 3px 3px rgb(51, 142, 226),
+        0px 0px 6px rgb(51, 142, 226),
+        0px 0px 10px rgb(51, 142, 226),
+        0px 0px 12px rgb(51, 142, 226);
+        border: none;
+        color: black;
+    }
+    
+
+    .form-error input{
+        border: 1px solid red;
+    }
+    
+    .form-error a{
+        visibility: visible;
+        color: red;
+    }
+    .form-error p.msg-input-CP{
+        visibility: visible;
+        color: red;
+    }
+    .form-success input{
+        border: 1.5px solid rgb(11, 228, 11);
+        }
+
+        dialog#caixa-animacao-login .animação-login{
+            position: fixed;
+            left: 50vw;
+            top: 50vh;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(10px);
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px black;
+            animation-name: fade_in;
+            animation-timing-function: linear;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            z-index: 5;
+        }
+        
+        dialog#caixa-animacao-login .animação-login #cadastrando{
+            color: rgb(0, 0, 0);
+            position: relative;
+            text-align: center;
+            top: 25%;
+            font-size: 30px;
+            animation-name: fade_out;
+            animation-timing-function: linear;
+            animation-duration: 0.2s;
+            animation-delay: 9s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+        
+        dialog#caixa-animacao-login .animação-login #concluido{
+            color: rgb(0, 0, 0);
+            position: absolute;
+            text-align: center;
+            opacity: 0;
+            top: 15%;
+            left: 0px;
+            font-size: 25px;
+            animation-name: fade_in;
+            animation-timing-function: linear;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-delay: 9s;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        
+        dialog#caixa-animacao-login .animação-login button#continuar-login{
+            position: relative;
+            top: 80px;
+            padding: 20px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: 0.3s;
+            animation-name: fade_in;
+            animation-timing-function: linear;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-delay: 9s;
+            z-index: 5;
+        }
+        
+        dialog#caixa-animacao-login .animação-login button#continuar-login:hover{
+            color: var(--corTema);
+            scale: 110%
+        }
+        
+        dialog#caixa-animacao-login .animação-login .spinner{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            border-bottom-color: var(--corTema);
+            top: 20px;
+            left: 40%;
+            animation-name: spinner;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 9;
+            animation-fill-mode: backwards;
+        }
+        
+        @keyframes spinner {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fade_in{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        
+        }
+        @keyframes fade_out{
+            from{
+                opacity: 1;
+            }
+            to{
+                opacity: 0;
+            }
+        }
+
+    #sair{
+            position: fixed;
+            border: 1px solid black;
+            padding: 30px;
+            top: 90px;
+            right: 10px;
+            background-color: rgb(43, 42, 56);
+            border-radius: 20px;
+            width: 70px;
+        }
+
+     #sair ul{
+        position: relative;
+        left: -25px;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        list-style-type: none;
+        }
+
+    #sair ul li{
+        position: relative;
+        cursor: pointer;
+        }
+    
+
+        .outrasNoticias{
+            position: absolute;
+            width: 250px;
+            right: 70px;
+            top: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .outrasNoticias img{
+            width: 250px;
+        }
+
+        .outrasNoticias ul{
+            list-style-type: none;
+        }
+        
+        .outrasNoticias a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .outrasNoticias a:hover{
+            text-decoration: underline;
+        }
+
+        #img-logo{
+            position: absolute;
+            width: 300px;
+            top: 100px;
+            right: 30px;
+        }
+
+        #fechar_entrar{
+            position: absolute;
+            font-size: 28px;
+            right: 30px;
+            top: 45px;
+            cursor: pointer;
+        }
+
+
+/*design responsivo*/
+
+@media screen and (max-width: 758px) {
+    
+    .principal-nav{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    
+    
+
+    .principal-nav h2#title{
+        position: absolute;
+        top: -12px;
+        left: 50vw;
+        font-size: 35px;
+        transform: translate(-70%);
+    }
+
+    img#img-logo{
+        top: 10px;
+        right: 20px;
+        width: 80px;
+        z-index: 1;
+    }
+
+    .principal-nav #btn-entrar{
+        pointer-events: none;
+        opacity: 0;
+    }
+
+
+    .conteudo{
+        position: relative;
+        top: 20px;
+    }
+
+    video{
+        left: 15px;
+        width: 80%;
+    }
+
+    .principal-nav #btn-menu{
+        position: absolute;
+        top: 80px;
+        border: none;
+        background-color: none;
+        position: absolute;
+    }
+
+    .conteudo h1{
+        font-size: 30px;
+        top: 110px;
+    }
+
+    .outrasNoticias{
+        pointer-events: none;
+        opacity: 0;
+    }
+}
+
+                    </style>
+</head>
+<body>
+    
+    <div class="principal-nav">
+        <nav>
+            <ul>
+                <button id="btn-menu" onclick="abrir_menu()">
+                    <li><i class='bx bx-menu'></i>Menu</li>
+                </button>
+            
+                <button  id="btn-entrar" onclick="abrir_entrar()">
+                    <li><i class='bx bx-log-in'></i>Entrar</li>
+                </button>
+                
+            </ul>
+
+            <h2 id="title">Conexão escola</h2>
+        </nav>
+        
+        <img id="img-logo" src="Logo Conexão Escola.png">
+    </div>
+
+    <div class="nav">
+        <ul>
+            
+            <button id="voltar-menu" onclick="fechar_menu()" class='bx bx-arrow-back'></button>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Principais Notícias</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Política</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Religioso</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Esportes</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Economia</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Brasil</li>
+            </a>
+
+            <a href="#">
+                <li class="nao-disponivel" onclick="mostrar_nao_disponivel()">Mundo</li>
+            </a>
+            
+        </ul>
+    </div>
+    
+    <div class="outrasNoticias">
+        <a href="#">
+        <ul>
+            <li  class="nao-disponivel" onclick="mostrar_nao_disponivel()"><img src="https://s2-g1.glbimg.com/mncrYEf5LQW6Dt7PX1a9noq0H4s=/0x0:984x404/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/O/A/xomaAiSn2bCOloCvblHw/fachadao.webp"><br>Escola de Bauru conquista melhor índice do Ideb entre as escolas públicas do estado</li>
+        </ul>
+        </a>
+        <a href="#">
+        <ul>
+            <li  class="nao-disponivel" onclick="mostrar_nao_disponivel()"><img src="https://imagens.ebc.com.br/J8d6s-7sVG31vLz1UuybaoDK-dI=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/20230627_123618_0.jpg?itok=XhZIvODI"><br>Resultados do Prouni do 2º semestre serão divulgados nesta quarta-feira</li>
+        </ul>
+        </a>
+        <a href="#">
+        <ul>
+            <li  class="nao-disponivel" onclick="mostrar_nao_disponivel()"><img src="https://jpimg.com.br/uploads/2024/06/cdc-gsri9cwcib0-unsplash-677x450.jpg"><br>Mais de 1 milhão de estudantes retorna às aulas na rede municipal de São Paulo</li>
+        </ul>
+        </a>
+    
+        <a href="#">
+        <ul>
+            <li  class="nao-disponivel" onclick="mostrar_nao_disponivel()"><img src="https://jpimg.com.br/uploads/2024/06/14229-675x450.jpg"><br>Governo encaminha novo Plano Nacional de Educação ao Congresso</li>
+        </ul>
+        </a>
+    
+    </div>
+
+    <dialog id="caixa-animacao-login">
+
+        <div class="animação-login">
+            <span id="cadastrando">Logando...</span>
+            <span id="concluido">login efetuado com sucesso</span><br>
+            <button id="continuar-login">Ir para o menu</button>
+            <div class="spinner"></div>
+        </div>
+    
+    </dialog>
+
+    <dialog id="sair-login">
+    <div id="sair">
+        <ul>
+            <li onclick="sair()">SAIR</li>
+        </ul>
+    </div>
+    </dialog>
+
+    <div class="conteudo">
+        <h1>Focos de larvas encontrados na escola Padre Conrado Sivila Alsina causam preocupação em Guarulhos</h1><br>
+        <p><i>Guarulhos, 21 de agosto de 2024</i><br><br>
+            
+            Uma situação alarmante tomou conta da Escola Padre Conrado Sivila Alsina, no bairro Bom Clima, em Guarulhos, na manhã de hoje. Focos de larvas foram descobertos por alunos assim que entraram na sala de aula número 7, provocando uma série de reações de preocupação entre alunos, pais e a equipe administrativa da instituição.<br><br>
+
+            Os alunos, ao se depararem com as larvas, imediatamente alertaram a direção da escola. A administração da escola respondeu de forma rápida e eficaz, acionando as autoridades sanitárias para realizar uma avaliação minuciosa e determinar a gravidade da situação. A presença das larvas foi confirmada em alguns locais específicos da escola, levantando preocupações sobre a possibilidade de uma infestação.<br><br>
+
+            A escola tomou a decisão de não suspender as aulas, demonstrando um compromisso com a continuidade do processo educativo. No entanto, para garantir a segurança e o bem-estar dos alunos, aqueles que estavam nas salas afetadas foram realocados para outras áreas da escola até que a higienização completa e a descontaminação dos ambientes fossem concluídas. Essa medida visou minimizar qualquer potencial risco para a saúde dos estudantes e funcionários.<br><br>
+
+            As autoridades superiores dessa escola, estão acompanhando de perto o caso para identificar a origem dos focos de larvas e implementar estratégias para evitar novos episódios.<br><br>
+
+            O episódio sublinha a importância da vigilância contínua e das práticas de manutenção em ambientes escolares, particularmente no que tange à prevenção de doenças transmitidas por vetores, como a dengue. A comunidade escolar segue acompanhando a situação de perto, aguardando atualizações e confiando na resolução rápida e eficaz do problema<br><br>
+
+            A seguir, nós temos algumas imagens capturadas por estudantes:<br><br>
+
+            <video controls>
+                <source src="VIDEO1.mp4" type="video/mp4" id="VIDEO1"> 
+            </video>
+            
+            <video controls>
+                <source src="VIDEO2.mp4" type="video/mp4" id="VIDEO2"> 
+            </video><br><br>
+
+            O incidente ocorrido na Escola Padre Conrado Sivila Alsina em Guarulhos, no dia 21 de agosto de 2024, evidenciou a importância da prontidão e da eficácia na resposta a situações de saúde pública. A rápida descoberta das larvas pelos alunos e a resposta imediata da direção escolar, juntamente com a atuação das autoridades sanitárias, foram fundamentais para a gestão da crise.<br><br>
+
+            Embora a escola tenha optado por não suspender as aulas, as medidas adotadas, como a realocação dos alunos das salas afetadas e a higienização completa, demonstraram um compromisso sólido com a segurança e o bem-estar de todos os envolvidos. Essas ações preventivas e corretivas são essenciais para garantir um ambiente escolar seguro e saudável.<br><br>
+
+            O acompanhamento contínuo por parte de especialistas em saúde pública e o suporte da prefeitura são passos cruciais para resolver a situação e prevenir futuros episódios. Este evento reforça a necessidade de vigilância constante e práticas de manutenção adequadas em instituições educacionais, especialmente no que diz respeito à prevenção de doenças transmitidas por vetores.<br><br>
+
+            A comunidade escolar, composta por alunos, pais e funcionários, continua atenta às atualizações e confiante na resolução eficiente do problema. O incidente serve como um lembrete da importância de manter um ambiente escolar livre de riscos e da responsabilidade compartilhada em garantir a saúde e a segurança de todos.<br><br>
+            <i>Publicado por: Conexão Escola<br>Equipe Formada por: Luiz Henrique Souza Santos, Eduardo Augusto Viera de Jesus e Richard Rodrigues Dos Santos</i>
+            </p>
+    </div>
+
+    <dialog id="msg-nao-disponivel">
+        
+            <p>Conteúdo não disponivel no momento</p>
+            <button type="button" onclick="voltar_noticia()">Voltar à noticia</button>
+
+    </dialog>
+
+    <dialog id="login">
+    <form id="form-login">
+        <h1 id="titulo-login">Login<i id="login-icon" class='bx bx-log-in'></i></h1><i id="fechar_entrar" onclick="fechar_entrar()" class='bx bx-x'></i>
+    
+    <div class="name-form-login">
+        <input type="text" id="nome-usuario">
+        <label for="nome-usuário" class="label-nome">Nome de usuário</label>
+        <a class="msg-input"><i>preencha este campo</i></a>
+    </div>
+    
+    <div class="password-form-login">
+        <input type="password" id="senha-usuario">
+        <label for="senha" class="label-senha">senha:</label>
+        <a class="msg-input"><i>preencha este campo</i></a>
+    </div>
+    
+        <div class="submit-form-login">
+        <button type="submit" id="entrar">Entrar</button>
+    </div>
+    
+    </form>
+    </dialog>
+
+
+    <script>
+        function abrir_menu(){
+    
+    const nav = document.getElementsByClassName("nav")[0];
+    const btn_menu = document.getElementById("btn-menu");
+
+    btn_menu.onclick = function(){
+            nav.style.width = "220px";
+    }
+}
+
+function fechar_menu(){
+    
+    const nav = document.getElementsByClassName("nav")[0];
+    const voltar_menu = document.getElementById("voltar-menu");
+
+    voltar_menu.onclick = function(){
+            nav.style.width = "0px";
+    }
+}
+
+function mostrar_nao_disponivel(){
+    const msg = document.getElementById("msg-nao-disponivel");
+
+        msg.show();
+    }
+
+
+
+    function abrir_entrar(){
+        const entrar = document.getElementById("login");
+
+            entrar.show();
+        }
+
+    function fechar_entrar(){
+        const entrar = document.getElementById("login");
+
+            entrar.close();
+        }
+
+
+        /*LOGIN*/
+
+    const form_login = document.getElementById("form-login");
+    const nameUser = document.getElementById("nome-usuario");
+    const passwordUser = document.getElementById("senha-usuario");
+
+    form_login.addEventListener("submit", (event) => {
+        event.preventDefault();
+    
+        checkInputs_login();
+        logar();
+    })
+    
+    function checkInputs_login(){
+        const nameUserValue = nameUser.value
+        const passwordUserValue = passwordUser.value
+    
+        if(nameUserValue === ""){
+            errorInput(nameUser, "preencha este campo")
+        }else{
+           successInput(nameUser);
+        }
+    
+        if(passwordUserValue === ""){
+            errorInput(passwordUser, "preencha este campo")
+        }else{
+           successInput(passwordUser);
+        }
+    }
+
+    function logar(){
+
+        const nameUserDiv = nameUser.parentElement;
+        const passwordUserDiv = passwordUser.parentElement;
+    
+        const login_loading = document.getElementById("caixa-animacao-login");
+        const btn_continuar = document.getElementById("continuar-login");
+        const btn_entrar = document.getElementById("btn-entrar");
+    
+        if(nameUserDiv.className === "form-success" && passwordUserDiv.className === "form-success"){
+            
+            login_loading.show();
+    
+            btn_continuar.onclick = function(){
+                login_loading.style.visibility = "hidden";
+                form_login.style.visibility = "hidden";
+
+                btn_entrar.innerText = nameUser.value;
+        }
+        
+        const btn_entrar = document.getElementById("btn-entrar");
+        const sair = document.getElementById("sair-login")
+
+        if(btn_entrar.innerText = nameUser.value){
+        btn_entrar.onclick = function(){
+
+            if(sair.show()){
+                sair.close()
+            }else{
+                sair.show();
+            }
+    }
+}
+        }
+        }
+    
+function errorInput(input, message){
+    const Div = input.parentElement;
+
+    const textMessage = Div.querySelector("a")
+    textMessage.innerText = message;
+    textMessage.style.visibility = "visible";
+    
+    Div.className = "form-error";
+}
+
+function successInput(input){
+    const Div = input.parentElement;
+    const textMessage = Div.querySelector("a");
+    textMessage.style.visibility = "hidden";
+
+    Div.className = "form-success";
+}
+
+function sair(){
+    location.href = "jornal.html"
+}
+
+function voltar_noticia(){
+     location.href = "jornal.html"
+}
+    </script>
+</body>
+</html>
